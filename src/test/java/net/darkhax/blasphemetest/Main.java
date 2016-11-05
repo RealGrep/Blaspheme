@@ -2,6 +2,7 @@ package net.darkhax.blasphemetest;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
@@ -39,11 +40,12 @@ public class Main extends JFrame {
                 frame.setLocationRelativeTo(null);
                 frame.setTitle("Blaspheme Pack Downloader");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("icon.png")));
             }
             
             catch (final Exception e) {
                 
-            }          
+            }
         });
     }
     

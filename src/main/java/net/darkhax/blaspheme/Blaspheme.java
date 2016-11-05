@@ -26,22 +26,29 @@ import net.lingala.zip4j.exception.ZipException;
 
 public final class Blaspheme {
     
-    public static final Gson GSON = new Gson();
-    public static final Pattern FILE_NAME_URL_PATTERN = Pattern.compile(".*?/([^/]*)$");
-    public static final Logger LOGGER = Logger.getLogger("Blaspheme");
+    /**
+     * The current version of the library. Follows a Major-Release-Build structure. The major
+     * number points to the current iteration of the project. The release number points to the
+     * current release of the project. The build number refers to the current build of the
+     * project and is handled by the build server.
+     */
+    public static final String VERSION = "1.0.0";
     
-    public static void main (String[] args) {
-        
-        if (args.length > 0) {
-            final String url = args[0];
-            try {
-                downloadModPackFromURL(url, false);
-            }
-            catch (final Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+    /**
+     * Instance of GSON, used for reading json files for pack downloads.
+     */
+    public static final Gson GSON = new Gson();
+    
+    /**
+     * Pattern for verifying a URL.
+     */
+    public static final Pattern FILE_NAME_URL_PATTERN = Pattern.compile(".*?/([^/]*)$");
+    
+    /**
+     * Logger for Blaspheme. Allows for greater compatibility support with other logger APIs.
+     * This should only ever be used internally!
+     */
+    public static final Logger LOGGER = Logger.getLogger("Blaspheme");
     
     /**
      * Downloads a modpack from a curse URL.

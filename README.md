@@ -23,7 +23,7 @@ If you are using [Maven](https://maven.apache.org/download.cgi) to manage your d
 <dependency>
      <groupId>net.darkhax.blaspheme</groupId>
      <artifactId>Blaspheme</artifactId>
-     <version>1.0.0</version>
+     <version>1.0.2</version>
 </dependency>
 ```
 
@@ -40,12 +40,12 @@ repositories {
 
 dependencies {
 
-    compile "net.darkhax.blaspheme:Blaspheme:1.0.0"
+    compile "net.darkhax.blaspheme:Blaspheme:1.0.2"
 }
 ```
 
 ##Legal Information
-Extremely Simple Storage is licensed under the [LGPL3](https://opensource.org/licenses/lgpl-3.0.html). Please see the `LICENSE.txt` for more details. 
+Extremely Simple Storage is licensed under the [LGPL2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html). Please see the `License.md` for more details. 
 
 ##Credits
 * [Darkhax](https://github.com/darkhax) - Maintainer of Blaspheme.

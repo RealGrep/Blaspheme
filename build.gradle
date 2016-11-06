@@ -75,10 +75,32 @@ task buildJar(type: Jar) {
     from sourceSets.main.output
 }
 
+task launcherJar(type: Jar) {
+
+    manifest {
+    
+        attributes "Main-Class" : "net.darkhax.blasphemetest.Main"
+    }
+    
+    baseName = project.name + "-launcher-test"
+    
+    from {
+     
+        configurations.compile.collect { 
+        
+            it.isDirectory() ? it : zipTree(it) 
+        } 
+    }
+    
+    from sourceSets.test.output
+    with jar
+}
+
 artifacts {
     archives buildJar
     archives sourcesJar
     archives javadocJar
+    archives launcherJar
 }
 
 uploadArchives {

@@ -82,8 +82,6 @@ task launcherJar(type: Jar) {
         attributes "Main-Class" : "net.darkhax.blasphemetest.Main"
     }
     
-    baseName = project.name + "-launcher-test"
-    
     from {
      
         configurations.compile.collect { 
@@ -94,6 +92,7 @@ task launcherJar(type: Jar) {
     
     from sourceSets.test.output
     with jar
+    classifier = 'launcher'
 }
 
 artifacts {

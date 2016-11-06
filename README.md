@@ -23,7 +23,7 @@ If you are using [Maven](https://maven.apache.org/download.cgi) to manage your d
 <dependency>
      <groupId>net.darkhax.blaspheme</groupId>
      <artifactId>Blaspheme</artifactId>
-     <version>1.0.3</version>
+     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -40,7 +40,7 @@ repositories {
 
 dependencies {
 
-    compile "net.darkhax.blaspheme:Blaspheme:1.0.3"
+    compile "net.darkhax.blaspheme:Blaspheme:1.0-SNAPSHOT"
 }
 ```
 

@@ -10,7 +10,7 @@ apply plugin: 'idea'
 apply plugin: 'maven'
 
 group 'net.darkhax.blaspheme'
-archivesBaseName ="Blaspheme"
+archivesBaseName = "Blaspheme"
 version = getVersionFromJava(file("src/main/java/net/darkhax/blaspheme/Blaspheme.java"))
 
 String getVersionFromJava(File file) {
@@ -83,15 +83,19 @@ task launcherJar(type: Jar) {
     }
     
     from {
-     
         configurations.compile.collect { 
         
             it.isDirectory() ? it : zipTree(it) 
         } 
     }
     
+	from('src/test/java') {
+        include '*.png'
+    }
+	 
+	from sourceSets.main.output
     from sourceSets.test.output
-    with jar
+	
     classifier = 'launcher'
 }
 

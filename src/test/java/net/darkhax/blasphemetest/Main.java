@@ -2,12 +2,14 @@ package net.darkhax.blasphemetest;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -36,7 +38,7 @@ public class Main extends JFrame {
                 frame.pack();
                 frame.setVisible(true);
                 frame.setSize(690, 240);
-                frame.setResizable(false);
+                frame.setResizable(true);
                 frame.setLocationRelativeTo(null);
                 frame.setTitle("Blaspheme Pack Downloader");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,11 +53,14 @@ public class Main extends JFrame {
     
     public Main() {
         
-        this.getContentPane().setLayout(new FlowLayout());
+        this.getContentPane().setLayout(new BorderLayout());
+
+        JPanel topPane = new JPanel(new WrapLayout());
+        this.add(topPane, BorderLayout.PAGE_START);
         
         final JTextField modpackField = new JTextField(40);
         modpackField.setText("Enter Your Pack URL Here");
-        this.add(modpackField);
+        topPane.add(modpackField);
         
         final JButton button = new JButton("Download Pack");
         button.addActionListener(e -> {
@@ -90,7 +95,7 @@ public class Main extends JFrame {
                 }
             }
         });
-        this.add(button);
+        topPane.add(button);
         
         final JTextArea logArea = new JTextArea(8, 80);
         logArea.setBackground(Color.WHITE);
@@ -101,7 +106,7 @@ public class Main extends JFrame {
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         
         Blaspheme.LOGGER.addHandler(new LogHandler(logArea));
-        this.add(scrollPane);
+        this.add(scrollPane, BorderLayout.CENTER);
     }
     
     private static class LogHandler extends Handler {
